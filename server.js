@@ -1,7 +1,9 @@
+
+
 var express = require("express");
 var app = express();
 var port = process.env.PORT || 3000;
-
+app.use(express.static(__dirname + "/app/"));
 
 
 var quotes = ['yes', 'no', 'maybe'];
@@ -33,7 +35,7 @@ app.get("/quote", function (req, res){
 });
 
 app.get("/", function(req, res) {
-  res.send("hello, universe");
+  res.sendFile("index.html");
 })
 
 app.listen(port, function() {
